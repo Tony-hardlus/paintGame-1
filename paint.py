@@ -26,8 +26,16 @@ def square(start, end):
     end_fill()
 
 
-def circle(start, end):
+def circulo(start, end):
     """Draw circle from start to end."""
+    #ARCR:Función para construír un circulo relleno por un color específico 
+    up() 
+    goto(start.x,start.y)
+    down()
+    begin_fill()
+    r = 50
+    circle(r)
+    end_fill()
     
 # VRDL: Función para construír un rectángulo relleno por un color específico
 def rectangle(start, end):
@@ -91,11 +99,11 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
-onkey(lambda: color('purple'),'P') #color morado agregado. 
-onkey(lambda: color('pink'),'Q') #color rosa agregado.  
+onkey(lambda: color('purple'),'P') #ARCR: Se añadió color morado
+onkey(lambda: color('pink'),'Q') #ARCR: Se añadió color rosa  
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
-onkey(lambda: store('shape', circle), 'c')
+onkey(lambda: store('shape', circulo), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()
