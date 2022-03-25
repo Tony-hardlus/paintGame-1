@@ -1,19 +1,9 @@
-"""Paint, for drawing shapes.
-
-Exercises
-
-1. Add a color.
-2. Complete circle.
-3. Complete rectangle.
-4. Complete triangle.
-5. Add width parameter.
-"""
-
+#VRDL: Se importó librería Turtle para construcción de gráficos
+import turtle
 from turtle import *
-
 from freegames import vector
 
-
+    
 def line(start, end):
     """Draw line from start to end."""
     up()
@@ -38,17 +28,39 @@ def square(start, end):
 
 def circle(start, end):
     """Draw circle from start to end."""
-    pass  # TODO
-
-
+    
+# VRDL: Función para construír un rectángulo relleno por un color específico
 def rectangle(start, end):
-    """Draw rectangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
 
+    # VRDL: Se realiza un count in range para dibujar los 4 lados:
+    for count in range(4):
+        if count %2 == 0:
+            forward((end.x + start.x) + 10)
+            left(90)
+        else:
+            forward((end.x -start.x)- 10)
+            left(90)
+    end_fill() 
 
+# VRDL: Función para construír un triángulo relleno por un color específico
 def triangle(start, end):
-    """Draw triangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    forward(end.x- start.y)
+    # VRDL: Nota. Esta instrucción significa girar a la izquierda 120 grados 
+    # antes de dibujar el siguiente lado
+    left(120)
+    forward(end.x- start.y)
+    left(120)
+    forward(end.x- start.y)
+    end_fill()
 
 
 def tap(x, y):
@@ -79,6 +91,8 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color('purple'),'P') #color morado agregado. 
+onkey(lambda: color('pink'),'Q') #color rosa agregado.  
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
